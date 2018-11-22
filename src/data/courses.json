@@ -1,0 +1,9 @@
+{
+  "courses": [
+    {"id": 1, "name": "React desde cero", "teacher": "Carlos Vesga"},
+    {"id": 2, "name": "Vue desde cero", "teacher": "Elkin Vesga"},
+    {"id": 3, "name": "C# desde cero", "teacher": "Lizbeth Vesga"},
+    {"id": 4, "name": "C++ desde cero", "teacher": "Humberto Vesga"}
+    
+  ]
+}

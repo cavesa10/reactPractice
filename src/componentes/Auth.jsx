@@ -12,11 +12,11 @@ const fakeAuth = {
   isAuthenticated: false,
   authenticate(cb) {
     this.isAuthenticated = true
-    setTimeout(cb, 100) // fake async
+    setTimeout(cb, 1000) // fake async
   },
   signout(cb){
     this.isAuthenticated = false
-    setTimeout(cb,100)
+    setTimeout(cb,1000)
   }
 }
 
@@ -33,12 +33,13 @@ const AuthButton = withRouter( ( {history} ) => (
       </div>
     :
       <h2>No Estás Logueado</h2>
-) )
+  ) 
+)
 
-const PrivateRoute = ( {component: Component, rest} ) => (
+const PrivateRoute = ( {component: Components, rest} ) => (
   <Route {...rest} render={(props) => (
     (fakeAuth.isAuthenticated)
-      ? <Component {...props} />
+      ? <Components {...props} />
       : <Redirect to={ {pathname: '/login', state: { from: props.location }}}  />
   )}  />
 )
@@ -66,8 +67,7 @@ class Login extends Component {
     } else {
       return(
         <div>
-          <h3>Debes de estar logueado para ver esta página
-          <mark> {from.pathname} </mark> </h3>
+          <h3>Debes de estar logueado para ver esta página <mark>{from.pathname}</mark> </h3>
           <button onClick= {this.login} >Log In</button>
         </div>
       )
